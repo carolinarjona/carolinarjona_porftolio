@@ -1,0 +1,58 @@
+/* Global Styles */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Satoshi', sans-serif;
+  --font-serif: 'Bluu Next', serif;
+}
+
+@layer base {
+  /* Custom Font Face Declarations would go here if we had local files */
+  /* Assuming fonts are loaded via HTML header or standard system fonts for now */
+  
+  body {
+    @apply bg-[#1e1e1e] text-[#e8eaed] antialiased;
+    cursor: default; /* Default cursor */
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e1e1e; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #AABF94; 
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+  }
+  .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+  
+  /* Cursor utilities */
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}
+
+/* Typography Overrides ensuring Fira Code is replaced by Satoshi or Bluu */
+.font-mono {
+  font-family: 'Satoshi', sans-serif !important; /* Override mono to Satoshi */
+}
+
+/* If you want code snippets to still look distinct but use Satoshi, we can just let them inherit or force Satoshi. 
+   The user asked to replace Fira Code with Satoshi or Bluu. 
+   We will map 'font-mono' classes to use Satoshi in most UI contexts (tags, small labels) 
+   or Bluu if it's a title-like element. 
+*/
